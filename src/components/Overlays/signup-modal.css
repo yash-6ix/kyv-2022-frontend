@@ -1,0 +1,7 @@
+#signup-container {
+  transition: opacity ease 0.35s;
+}
+
+.animate-in-modal {
+  opacity: 1 !important;
+}
