@@ -1,27 +1,20 @@
-import { HamburgerSVG, QuestionSVG, MapSVG, CandidatesSVG, CloseSVG, LogoutSVG } from "./SVG";
+// import { HamburgerSVG, QuestionSVG, MapSVG, CandidatesSVG, CloseSVG, LogoutSVG } from "./SVG";
 import { KYVLogoSVG } from "../assets/kyv-logo";
 
-import { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+// import { useState } from "react";
+// import { AnimatePresence, motion } from "framer-motion";
 import { useHistory } from "react-router";
 import styled from "styled-components";
 
 import Utils from "../util/utils";
 import tokenAuthService from "../services/tokenAuth/tokenAuthService";
-import { LinkItem } from "./LinkItem";
-import { flexbox } from "@mui/system";
+// import { LinkItem } from "./LinkItem";
+// import { flexbox } from "@mui/system";
 
 const Header = () => {
-    const [hamburgerShown, setHamburgerShown] = useState(false);
-
-    const onClickLink = () => {
-        setHamburgerShown(false);
-    };
-
     const history = useHistory();
 
     const logout = () => {
-        onClickLink();
         tokenAuthService.logout();
         history.push("/user");
     };
@@ -38,9 +31,13 @@ const Header = () => {
                 <Btn current={history.location.pathname.includes("/manage-candidates")}>
                     Manage Candidates
                 </Btn>
-                <Btn>Change Requests</Btn>
+                <Btn current={history.location.pathname.includes("/change-requests")}>
+                    Change Requests
+                </Btn>
             </Center>
-            <Right></Right>
+            <Right>
+                <Btn onClick={() => logout()}>LOGOUT</Btn>
+            </Right>
         </Main>
     );
 };
@@ -71,13 +68,14 @@ const Center = styled.div`
 `;
 
 const Right = styled.div`
-    padding-right: 20px;
+    padding-right: 10px;
+    padding-left: 10px;
     width: 180px;
     height: 80px;
     border-left: 1px solid grey;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
 `;
 
 const Btn = styled.p`

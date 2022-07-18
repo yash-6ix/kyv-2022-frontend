@@ -4,7 +4,7 @@ import { authenticatedRoutes } from '../Router/router.config';
 import utils from '../../util/utils';
 
 import { Redirect, Switch } from 'react-router-dom';
-import { LeftSidebar } from '../LeftSidebar';
+// import { LeftSidebar } from '../LeftSidebar';
 
 const AuthenticatedUserLayout = () => {
     const redirectUrl = utils.getLoggedUserRedirectURL();

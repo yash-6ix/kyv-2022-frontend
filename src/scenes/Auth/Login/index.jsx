@@ -6,6 +6,7 @@ import utils from '../../../util/utils';
 import { toast } from 'react-toastify';
 import Input from '../../../components/Input';
 import { Link } from 'react-router-dom';
+import { ThemeButton } from '../../../components/ThemeButton';
 
 class Login extends Component {
     constructor(props) {
@@ -70,7 +71,7 @@ class Login extends Component {
         return (
             <>
                 <Input
-                    wrapperClassName="mb-10"
+                    wrapperClassName="mb-8"
                     name="email"
                     id="email"
                     label="Email"
@@ -79,7 +80,7 @@ class Login extends Component {
                     onChange={this.updateValue}
                 />
                 <Input
-                    wrapperClassName="mb-10"
+                    wrapperClassName="mb-8"
                     name="password"
                     id="password"
                     label="Password"
@@ -87,6 +88,14 @@ class Login extends Component {
                     value={this.state.password}
                     onChange={this.updateValue}
                 />
+                {this.state.loading ? (
+                    <Spinner />
+                ) : (
+                    <ThemeButton
+                        customAction={this.submitUserLogin}
+                        buttonText="Sign In" 
+                    />
+                )}
                 <div className="flex items-center justify-end w-full mt-2 mb-6 space-x-4">
                     <Link
                         to="/user/trouble-signing-in"
@@ -95,17 +104,8 @@ class Login extends Component {
                         Forgot Password
                     </Link>
                 </div>
-                {this.state.loading ? (
-                    <Spinner />
-                ) : (
-                    <button
-                        onClick={this.submitUserLogin}
-                        className="w-full py-2 text-lg font-bold transition bg-brand-olive-900 hover:bg-brand-olive-800 active:bg-brand-olive-700 font-body text-brand-white rounded-xl"
-                    >
-                        Sign In
-                    </button>
-                )}
-                <div className="flex items-center justify-center w-full mt-6 space-x-4">
+
+                {/* <div className="flex items-center justify-center w-full mt-6 space-x-4">
                     <span className="text-sm font-body text-brand-neutral-600">
                         Don't have an account?
                     </span>
@@ -115,7 +115,7 @@ class Login extends Component {
                     >
                         Sign Up
                     </Link>
-                </div>
+                </div> */}
             </>
         );
     }
