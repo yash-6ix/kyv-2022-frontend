@@ -1,7 +1,7 @@
 import * as React from "react";
 import Router from "./components/Router";
 import { ToastContainer } from "react-toastify";
-import Header from "./components/Header";
+// import Header from "./components/Header";
 
 import "react-toastify/dist/ReactToastify.css";
 

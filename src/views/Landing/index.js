@@ -3,18 +3,17 @@ import styled from "styled-components";
 
 import { connect } from "react-redux";
 import { userSignup, userLogin } from "../../store/actions/authAction";
-import Login from "../../scenes/Auth/Login";
-import Signup from "../../scenes/Auth/Signup";
+// import Login from "../../scenes/Auth/Login";
+// import Signup from "../../scenes/Auth/Signup";
 
-import ResetPassword from "../../scenes/Auth/ResetPassword";
-import ResetPasswordSuccess from "../../scenes/Auth/ResetPasswordSuccess";
-import TroubleSigningIn from "../../scenes/Auth/TroubleSigningIn";
-import TroubleSigningInSuccess from "../../scenes/Auth/TroubleSigningInSuccess";
+// import ResetPassword from "../../scenes/Auth/ResetPassword";
+// import ResetPasswordSuccess from "../../scenes/Auth/ResetPasswordSuccess";
+// import TroubleSigningIn from "../../scenes/Auth/TroubleSigningIn";
+// import TroubleSigningInSuccess from "../../scenes/Auth/TroubleSigningInSuccess";
 
 // import Spinner from '../../components/Spinner';
-import { CheckmarkSVG } from "../../components/SVG";
+// import { CheckmarkSVG } from "../../components/SVG";
 import { ThemePageBg } from "../../components/ThemePageBg";
-import { ThemeContainer } from "../../components/ThemeContainer";
 import { KYVLogoSVG } from "../../assets/kyv-logo";
 
 // import { AnimatePresence } from 'framer-motion';
@@ -78,16 +77,16 @@ class Landing extends Component {
         }
     };
     render() {
-        const { location } = this.props;
-        const isSignup = !location.pathname.localeCompare("/user/signup");
-        const isTroubleSigningIn = !location.pathname.localeCompare("/user/trouble-signing-in");
-        const isTroubleSigningInSuccess = !location.pathname.localeCompare(
-            "/user/trouble-signing-in-success"
-        );
-        const isResetPassword = !location.pathname.localeCompare("/user/reset-password");
-        const isResetPasswordSuccess = !location.pathname.localeCompare(
-            "/user/reset-password-success"
-        );
+        // const { location } = this.props;
+        // const isSignup = !location.pathname.localeCompare("/user/signup");
+        // const isTroubleSigningIn = !location.pathname.localeCompare("/user/trouble-signing-in");
+        // const isTroubleSigningInSuccess = !location.pathname.localeCompare(
+        //     "/user/trouble-signing-in-success"
+        // );
+        // const isResetPassword = !location.pathname.localeCompare("/user/reset-password");
+        // const isResetPasswordSuccess = !location.pathname.localeCompare(
+        //     "/user/reset-password-success"
+        // );
         return (
             <>
                 <ThemePageBg>
@@ -130,7 +129,24 @@ const Main = styled.div`
     flex-direction: column;
     align-items: center;
     min-width: 300px;
-    padding: 20px;
+    padding: 10px;
+`;
+
+const ThemeContainer = styled.div`
+    background-color: white;
+    border: 1px solid grey;
+    border-radius: 20px;
+    box-shadow: 1px 1px 1px solid grey;
+    width: ${({ pgWidth }) => (pgWidth ? "80%" : "initial")};
+    max-width: 896px;
+    box-shadow: 8px 8px #000;
+    margin: 20px;
+    margin-top: 60px;
+    padding: 10px;
+
+    @media (min-width: 560px) {
+        padding: 20px;
+    }
 `;
 
 const H2 = styled.h2`
@@ -143,48 +159,52 @@ const H2 = styled.h2`
 `;
 
 const H3 = styled.h2`
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 400;
     margin-bottom: 20px;
     max-width: 400px;
     text-align: center;
-`;
 
-const Input = styled.input`
-    border: 1px solid blue;
-    background: transparent;
-    font-size: 16px;
-    padding: 8px;
-    border-radius: 3px;
-    margin-bottom: 10px;
-    font-family: "Raleway", sans-serif;
-
-    ::placeholder {
-        font-size: 14px;
-        font-weight: 400;
-        color: #bbb;
-        font-family: "Raleway", sans-serif;
+    @media (min-width: 560px) {
+        font-size: 24px;
     }
 `;
 
-const T2 = styled.p`
-    font-size: 18px;
-    font-weight: 500;
-    margin-top: 0;
-    max-width: 250px;
-`;
+// const Input = styled.input`
+//     border: 1px solid blue;
+//     background: transparent;
+//     font-size: 16px;
+//     padding: 8px;
+//     border-radius: 3px;
+//     margin-bottom: 10px;
+//     font-family: "Raleway", sans-serif;
 
-const T3 = styled.p`
-    font-size: 12px;
-    margin-top: 0;
-`;
+//     ::placeholder {
+//         font-size: 14px;
+//         font-weight: 400;
+//         color: #bbb;
+//         font-family: "Raleway", sans-serif;
+//     }
+// `;
 
-const Submit = styled.button`
-    margin-top: 10px;
-    border: none;
-    background-color: blue;
-    color: white;
-    font-size: 16px;
-    padding: 8px 20px;
-    border-radius: 3px;
-`;
+// const T2 = styled.p`
+//     font-size: 18px;
+//     font-weight: 500;
+//     margin-top: 0;
+//     max-width: 250px;
+// `;
+
+// const T3 = styled.p`
+//     font-size: 12px;
+//     margin-top: 0;
+// `;
+
+// const Submit = styled.button`
+//     margin-top: 10px;
+//     border: none;
+//     background-color: blue;
+//     color: white;
+//     font-size: 16px;
+//     padding: 8px 20px;
+//     border-radius: 3px;
+// `;
