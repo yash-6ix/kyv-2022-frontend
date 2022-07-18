@@ -15,6 +15,7 @@ import TroubleSigningInSuccess from "../../scenes/Auth/TroubleSigningInSuccess";
 import { CheckmarkSVG } from "../../components/SVG";
 import { ThemePageBg } from "../../components/ThemePageBg";
 import { ThemeContainer } from "../../components/ThemeContainer";
+import { KYVLogoSVG } from "../../assets/kyv-logo";
 
 // import { AnimatePresence } from 'framer-motion';
 
@@ -91,60 +92,14 @@ class Landing extends Component {
             <>
                 <ThemePageBg>
                     <ThemeContainer>
-                        <Inner>
-                            {isResetPasswordSuccess && (
-                                <CheckmarkSVG className="w-6 fill-current text-brand-olive-600" />
-                            )}
-
-                            <H2>
-                                {isSignup
-                                    ? "Create an Account"
-                                    : isTroubleSigningIn
-                                    ? "Enter your email to reset your password"
-                                    : isTroubleSigningInSuccess
-                                    ? "Check your email"
-                                    : isResetPassword
-                                    ? "Reset your password"
-                                    : isResetPasswordSuccess
-                                    ? "Success!"
-                                    : "Candidates, Staff & Admin Panel"}
-                            </H2>
-                            {this.props.emailSignupSuccess ? (
-                                <>
-                                    <T2>Enter the password you recieved in your email:</T2>
-                                    <T3>Please check your spam.</T3>
-                                    <Input
-                                        value={this.state.email}
-                                        name="email"
-                                        onChange={this.updateValue}
-                                        placeholder="Email address..."
-                                        disabled={true}
-                                    />
-                                    <Input
-                                        value={this.state.password}
-                                        name="password"
-                                        type="password"
-                                        onChange={this.updateValue}
-                                        placeholder="Password"
-                                        onKeyDown={() => this._handleKeyDown2}
-                                    />
-                                    <Submit onClick={this.submitUserLogin}>Submit</Submit>
-                                </>
-                            ) : isSignup ? (
-                                <Signup {...this.props} />
-                            ) : isTroubleSigningIn ? (
-                                <TroubleSigningIn {...this.props} />
-                            ) : isTroubleSigningInSuccess ? (
-                                <TroubleSigningInSuccess {...this.props} />
-                            ) : isResetPassword ? (
-                                <ResetPassword {...this.props} />
-                            ) : isResetPasswordSuccess ? (
-                                <ResetPasswordSuccess {...this.props} />
-                            ) : (
-                                <Login {...this.props} />
-                            )}
-                            {/* </div> */}
-                        </Inner>
+                        <Main>
+                            <KYVLogoSVG />
+                            <H2>Coming soon!</H2>
+                            <H3>
+                                A platform to learn about the candidates, issues and more regarding
+                                Toronto's upcoming election on October 24th, 2022.
+                            </H3>
+                        </Main>
                     </ThemeContainer>
                 </ThemePageBg>
             </>
@@ -170,7 +125,10 @@ const mapDispatchToProps = (dispatch) => {
 
 export default connect(mapStateToProps, mapDispatchToProps)(Landing);
 
-const Inner = styled.div`
+const Main = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     min-width: 300px;
     padding: 20px;
 `;
@@ -178,6 +136,15 @@ const Inner = styled.div`
 const H2 = styled.h2`
     font-size: 28px;
     font-weight: 600;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    max-width: 400px;
+    text-align: center;
+`;
+
+const H3 = styled.h2`
+    font-size: 24px;
+    font-weight: 400;
     margin-bottom: 20px;
     max-width: 400px;
     text-align: center;
