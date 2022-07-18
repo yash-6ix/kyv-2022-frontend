@@ -18,7 +18,7 @@ const AnonymousUserLayout = () => {
                         />
                     ))}
 
-                <Redirect from="/user" to="/user/login" />
+                <Redirect from="/user" to="/user/under-construction" />
             </Switch>
         </React.Fragment>
     );

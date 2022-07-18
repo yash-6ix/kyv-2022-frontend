@@ -29,7 +29,7 @@ export const anonymousRoutes = [
         component: asyncComponent(() => import("../../scenes/Anonymous/Topic")),
     },
     {
-        path: "/user/login",
+        path: "/user/under-construction",
         component: asyncComponent(() => import("../../scenes/Auth")),
         showInMenu: false,
     },
